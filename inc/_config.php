@@ -1,13 +1,13 @@
 <?php
 
 // Instalación en el servidor
-const URL= 'http://aa.local/alumnator3';     // Cambiar este valor por la ruta de tu servidor / proyecto
+const URL= 'http://alumnator.local/alumnator';     // Cambiar este valor por la ruta de tu servidor / proyecto
 
 // Datos de conexión con la base de datos
 const HOST ='localhost';
 const USER  ='root';
 const PASS  ='root';
-const DBNA  ='Alumnator';
+const DBNA  ='alumnator';
 
 // ------------------------------
 
