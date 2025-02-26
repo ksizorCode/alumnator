@@ -30,7 +30,8 @@
             echo '<img class="alumno" src="assets/img/uploads/' . $alumno['foto'] . '" alt="">';
             echo '<h3 class="nombre">'.$alumno['nombre'] .' '.$alumno['apellido'].'</h3>';
             echo '<p class="curso">'.$alumno['curso'].'</p>';
-            echo '</li>';      }
+            echo '<a class="btn" href="infoAlumno.php?id='.$alumno['id'].'">Ver más info</a>';
+            echo '</li>';}
         } else {
             echo "0 Alumnos en la base de datos. Porfavor acuda al apartado instalación.";
         }
