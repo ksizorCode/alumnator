@@ -71,7 +71,8 @@ const DATOS_MENUPRINCIPAL=[
     ['Instagram', INSTAGRAM,        1,      'ext',          'Instagram'],
     ['Bluesky',   BLUESKY ,         1,      'ext',          'Bluesky'],
     ['Alumno',   'infoAlumno.php' , 0,      '',             'Alumno'],
-    ['Instalar',  'install' , 0,        'admin',        'Instalación inicial de la Base de Datos'],
+    ['Cursos',   'cursos.php' , 0,      '',                 'Cursos'],
+    ['Instalar', 'install' , 0,        'admin',            'Instalación inicial de la Base de Datos'],
 ];
 const DATOS_MENULEGAL=[
     //  0.nombre                  1.url              2.target  3.class  4.titulo
@@ -213,3 +214,67 @@ function consulta($sql, $devolver=false, $mensaje="La consulta se ha realizado c
     mysqli_close($conn);
 }
 
+
+
+
+
+
+
+
+
+/****** CONSTRUCTOR DE FORMULARIOS */
+/*
+$f_curso=[
+ ['Nombre curso',   'text'      ,'ingrese nombre'],
+ ['Profesor',       'text'      ,'ingrese profe'],
+ ['Descripcion',    'textarea'  ,'ingrese dato'],
+ ['Fecha inicio',   'date'      ,'ingrese dato'],
+ ['Fecha fin',      'date'      ,'ingrese dato'],
+ ['Duracion',       'number'    ,'ingrese dato'],
+ ['Contraseña',     'password'  ,'ingrese dato'],
+ ['Practicas',      'checkbox'  ,'ingrese dato']
+];
+*/
+
+
+//constructor_formularios($f_curso);
+//constructor_formularios($f_curso,'insertar.php');
+//constructor_formularios($f_curso,'insertar.php','get');
+//constructor_formularios($f_curso,'insertar.php','get','form-curso');
+//constructor_formularios($f_curso,'insertar.php','get','form-curso','formulario-curso');
+//constructor_formularios($f_curso,'insertar.php','get','form-curso','formulario-curso','Enviar datos');
+//constructor_formularios($f_curso,'Enviar datos');
+
+function constructor_formularios($array, $action='',$method='post',$class='', $id='', $submit='Enviar'){ 
+  echo"<form action='$action' method='$method' class='$class'>";
+  foreach($array as $chiflu){
+    echo "<label for='".simpli($chiflu[0])."'>".$chiflu[0]."</label>";
+    echo"<input type='$chiflu[1]' id='".simpli($chiflu[0])."' name='".simpli($chiflu[0])."' placeholder='$chiflu[2]'>";
+  }
+  echo "<input type='submit' value='$submit'>";
+  echo"</form>";
+  }
+  
+  
+  
+  // Función para simplificar
+  
+
+function simpli($texto) {
+    // Convertir a minúsculas
+    $texto = strtolower($texto);
+    
+    // Eliminar tildes y caracteres especiales
+    $texto = iconv('UTF-8', 'ASCII//TRANSLIT', $texto);
+    
+    // Reemplazar espacios y otros caracteres no deseados con guiones bajos
+    $texto = preg_replace('/[^a-z0-9]+/', '_', $texto);
+    
+    // Eliminar guiones bajos al inicio y al final
+    $texto = trim($texto, '_');
+    
+    return $texto;
+}
+  
+  
+  
